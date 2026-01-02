@@ -1,0 +1,12 @@
+# Node
+node_modules/
+
+# Env files
+.env
+
+# AWS keys
+*.pem
+
+# OS junk
+.DS_Store
+

@@ -1,0 +1,7 @@
+.env
+.DS_Store
+.vscode
+.demo.pem
+# Dependencies
+node_modules
+package-lock.json
