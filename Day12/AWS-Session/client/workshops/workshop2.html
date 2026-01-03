@@ -521,39 +521,41 @@
     </div>
 
     <!-- Client-side Js -->
-    <script>
-      var stripe = Stripe(
-        "pk_test_51L5AsSSCC8JVWfvgEtfJkzHMTh7Z5PLY5m1yhR379sJgwAVZEe13NaiG33wsHSyHnPJMjTNOosiPk6AeMI8q0ims0049IKffiu"
-      );
-      var button = document.getElementById("checkout-btn");
-      
-      button.addEventListener("click", function (e) {
-        e.preventDefault();
+    <!-- Client-side Js -->
+<script>
+  var button = document.getElementById("checkout-btn");
 
-        // form validation:
-        let name = document.getElementById("nameField").value;
-        if (name == "") {
-          alert("Please fill all required fields!");
-          return false;
-        }
+  button.addEventListener("click", function (e) {
+    e.preventDefault();
 
-        // Setting this PriceId here:
-        var priceId = "price_1SlQ9JRpvRUuQmozl56Q6E6T";
-
-        fetch("/create-checkout-session/" + priceId, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        })
-          .then((response) => response.json())
-          .then((session) => {
-            stripe.redirectToCheckout({ sessionId: session.id });
-          })
-          .catch((error) => {
-            console.error("Error:", error);
-          });
-      });
-    </script>
+    // Form validation
+    let name = document.getElementById("nameField").value;
+    let email = document.querySelector('input[name="emailField"]').value;
+    
+    if (!name || !email) {
+      alert("⚠️ Please fill all required fields!");
+      return false;
+    }
+    
+    // Optional: You can collect the form data here
+    const formData = {
+      name: name,
+      email: email,
+      phone: document.querySelector('input[name="numberField"]').value,
+      company: document.querySelector('input[name="companyField"]').value,
+      designation: document.querySelector('input[name="designationField"]').value,
+      country: document.querySelector('select[name="countries"]').value,
+      workshop: document.querySelector('h1').textContent,
+      timestamp: new Date().toISOString()
+    };
+    
+    // Log it (you can send this to your backend later)
+    console.log("Workshop Registration:", formData);
+    
+    // Show success and redirect
+    alert("✅ Registration Successful! Redirecting...");
+    window.location.href = "../success.html";
+  });
+</script>
   </body>
 </html>
