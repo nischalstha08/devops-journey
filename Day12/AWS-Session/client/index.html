@@ -2,6 +2,8 @@
 <html lang="en">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8" />
+    <title>SkillForge Academy - Forge Your Creative Future</title>
     <script src="https://js.stripe.com/v3/"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css"/>
@@ -10,87 +12,260 @@
   </head>
 
   <body>
+    <!-- Animated Background -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Navbar -->
     <div class="navbar">
-      <a class="nav-content" href="https://aalucha.com/" target="_blank">
-        <img src="assets/brand-logo.svg" alt="Aalucha Logo" height="60" width="350" />
-      </a>
+      <div class="nav-content">
+        <div class="logo-container">
+          <div class="logo-icon">⚡</div>
+          <div class="logo-text">
+            <span class="logo-main">SkillForge</span>
+            <span class="logo-sub">Academy</span>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="container">
+      <!-- Hero Header -->
       <div class="header">
         <div class="title">
-          <h1>Welcome to Aalucha Workshops! </h1>
+          <h1>🎨 Forge Your Creative Future</h1>
         </div>
-        <p>
-          Aalucha is dedicated to empowering learners with cutting-edge technology skills. <br><br> 
-          Through our comprehensive workshops, hands-on training sessions, and expert-led courses, we help you master the tools and technologies that matter. <br><br>
-          Join us on this exciting learning journey - <b>"Live Workshops"</b>
-          <br><br>
-          <center>
-            <iframe class="video" width="560" height="315" src="https://www.youtube.com/watch?v=dQw4w9WgXcQ" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
-          </center>
+        <div class="hero-subtitle">
+          <p>Where Creativity Meets Technology</p>
+        </div>
+        <p class="hero-description">
+          SkillForge Academy is your gateway to mastering the creative digital arts. 
+          From 3D design to UI/UX and creative coding, we empower creators with 
+          hands-on workshops led by industry experts.
         </p>
+        
+        <div class="stats-container">
+          <div class="stat-box">
+            <div class="stat-number">5,000+</div>
+            <div class="stat-label">Students Trained</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">98%</div>
+            <div class="stat-label">Success Rate</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-number">50+</div>
+            <div class="stat-label">Expert Instructors</div>
+          </div>
+        </div>
+
+        <div class="badge-container">
+          <span class="badge">🏆 Industry Certified</span>
+          <span class="badge">💼 Job Ready Skills</span>
+          <span class="badge">🎓 Lifetime Access</span>
+        </div>
+      </div>
+
+      <!-- Workshop Title Section -->
+      <div class="workshops-title">
+        <h2>🔥 Featured Live Workshops</h2>
+        <p>Join our expert-led sessions and transform your creative career</p>
       </div>
 
       <!-- Workshop Cards -->
       <div class="wrapper-flex">
-        <div class="speaker-container">
+        <!-- Workshop 1: 3D Design with Blender -->
+        <div class="speaker-container" data-workshop="blender">
           <img src="assets/price-tag.png" id="price-tag" />
           <div id="price">FREE</div>
-          <div class="banner-img"></div>
+          <div class="banner-img workshop-banner-1">
+            <div class="banner-overlay">
+              <div class="workshop-category">3D Design</div>
+            </div>
+          </div>
           <img
             src="assets/Speaker_Imgs/speaker1.jpg"
-            alt="profile image"
+            alt="Maya Chen"
             class="profile-img"
           />
-          <h1 class="name">Workshop 1 Title</h1>
+          <h1 class="name">3D Design with Blender</h1>
           <div class="description">
             <div class="timings">
-              <p><i class="bi bi-calendar-fill"></i>Date TBD</p>
-              <p><i class="bi bi-clock-fill"></i>Time TBD</p>
+              <p><i class="bi bi-calendar-fill"></i>Feb 15, 2026</p>
+              <p><i class="bi bi-clock-fill"></i>10:00 AM PST</p>
             </div>
-            Description of your first workshop. Learn essential skills and gain hands-on experience with industry-standard tools and practices. <br><br>
+            Master the fundamentals of 3D modeling, texturing, and animation. 
+            Create stunning renders and bring your creative visions to life with 
+            industry-standard tools.
+            
+            <div class="skills-tags">
+              <span class="skill-tag">Modeling</span>
+              <span class="skill-tag">Animation</span>
+              <span class="skill-tag">Rendering</span>
+            </div>
           </div>
-          <button class="btn" id="work-1">Register Now</button>
+          <button class="btn" id="work-1">
+            <span>Register Now</span>
+            <i class="bi bi-arrow-right"></i>
+          </button>
         </div>
-        <div class="speaker-container">
+
+        <!-- Workshop 2: UI/UX Design -->
+        <div class="speaker-container" data-workshop="uiux">
           <img src="assets/price-tag.png" id="price-tag" />
           <div id="price">FREE</div>
-          <div class="banner-img"></div>
+          <div class="banner-img workshop-banner-2">
+            <div class="banner-overlay">
+              <div class="workshop-category">UI/UX Design</div>
+            </div>
+          </div>
           <img
             src="assets/Speaker_Imgs/speaker2.jpg"
-            alt="profile image"
+            alt="Alex Rodriguez"
             class="profile-img"
           />
-          <h1 class="name">Workshop 2 Title</h1>
+          <h1 class="name">UI/UX Design Masterclass</h1>
           <div class="description">
             <div class="timings">
-              <p><i class="bi bi-calendar-fill"></i>Date TBD</p>
-              <p><i class="bi bi-clock-fill"></i>Time TBD</p>
+              <p><i class="bi bi-calendar-fill"></i>Feb 22, 2026</p>
+              <p><i class="bi bi-clock-fill"></i>2:00 PM PST</p>
             </div>
-            Description of your second workshop. Dive deeper into advanced concepts and build real-world projects with expert guidance.
+            Learn user-centered design principles, prototyping in Figma, and 
+            creating intuitive interfaces. Design products that users love and 
+            build your portfolio.
+            
+            <div class="skills-tags">
+              <span class="skill-tag">Figma</span>
+              <span class="skill-tag">Prototyping</span>
+              <span class="skill-tag">User Research</span>
+            </div>
           </div>
-          <button class="btn" id="work-2">Register Now</button>
+          <button class="btn" id="work-2">
+            <span>Register Now</span>
+            <i class="bi bi-arrow-right"></i>
+          </button>
         </div>
-        <div class="speaker-container">
+
+        <!-- Workshop 3: Creative Coding -->
+        <div class="speaker-container" data-workshop="coding">
           <img src="assets/price-tag.png" id="price-tag" />
           <div id="price">FREE</div>
-          <div class="banner-img"></div>
+          <div class="banner-img workshop-banner-3">
+            <div class="banner-overlay">
+              <div class="workshop-category">Creative Code</div>
+            </div>
+          </div>
           <img
             src="assets/Speaker_Imgs/speaker3.jpg"
-            alt="profile image"
+            alt="Jordan Kim"
             class="profile-img"
           />
-          <h1 class="name">Workshop 3 Title</h1>
+          <h1 class="name">Creative Coding with p5.js</h1>
           <div class="description">
             <div class="timings">
-              <p><i class="bi bi-calendar-fill"></i>Date TBD</p>
-              <p><i class="bi bi-clock-fill"></i>Time TBD</p>
+              <p><i class="bi bi-calendar-fill"></i>Mar 1, 2026</p>
+              <p><i class="bi bi-clock-fill"></i>11:00 AM PST</p>
             </div>
-            Description of your third workshop. Master cutting-edge technologies and best practices to advance your career.
+            Blend art and code to create interactive visual experiences. 
+            Perfect for artists wanting to code and developers wanting to create art.
+            
+            <div class="skills-tags">
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">Generative Art</span>
+              <span class="skill-tag">Animation</span>
+            </div>
           </div>
-          <button class="btn" id="work-3">Register Now</button>
+          <button class="btn" id="work-3">
+            <span>Register Now</span>
+            <i class="bi bi-arrow-right"></i>
+          </button>
         </div>
+      </div>
+
+      <!-- Testimonials Section -->
+      <div class="testimonials-section">
+        <h2>💬 What Our Students Say</h2>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p>"SkillForge transformed my career. The instructors are world-class!"</p>
+            <div class="testimonial-author">- Sarah M., 3D Artist</div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p>"Best investment I've made. Landed my dream job after the UX workshop."</p>
+            <div class="testimonial-author">- Mike L., UX Designer</div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+            <p>"Amazing hands-on experience. I'm now creating my own generative art!"</p>
+            <div class="testimonial-author">- Emma K., Creative Dev</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Particles Animation Script -->
+    <script>
+      const canvas = document.getElementById('particles-canvas');
+      const ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      const particles = [];
+      const particleCount = 50;
+
+      class Particle {
+        constructor() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.size = Math.random() * 3 + 1;
+          this.speedX = Math.random() * 1 - 0.5;
+          this.speedY = Math.random() * 1 - 0.5;
+          this.color = ['#FF6B35', '#FF006E', '#00D9FF'][Math.floor(Math.random() * 3)];
+        }
+
+        update() {
+          this.x += this.speedX;
+          this.y += this.speedY;
+
+          if (this.x > canvas.width) this.x = 0;
+          if (this.x < 0) this.x = canvas.width;
+          if (this.y > canvas.height) this.y = 0;
+          if (this.y < 0) this.y = canvas.height;
+        }
+
+        draw() {
+          ctx.fillStyle = this.color;
+          ctx.globalAlpha = 0.3;
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+
+      function init() {
+        for (let i = 0; i < particleCount; i++) {
+          particles.push(new Particle());
+        }
+      }
+
+      function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(particle => {
+          particle.update();
+          particle.draw();
+        });
+        requestAnimationFrame(animate);
+      }
+
+      init();
+      animate();
+
+      window.addEventListener('resize', () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      });
+    </script>
 
     <!-- Client-side Js -->
     <script src="app.js"></script>
