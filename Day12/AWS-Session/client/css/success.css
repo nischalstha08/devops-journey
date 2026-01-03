@@ -1,27 +1,29 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
 
 :root {
-  /* Professional Color Palette */
-  --primary-color: #2563eb;
-  --primary-dark: #1e40af;
-  --success-color: #10b981;
+  /* SkillForge Color Palette */
+  --primary-orange: #FF6B35;
+  --primary-pink: #FF006E;
+  --primary-cyan: #00D9FF;
+  --success-green: #10b981;
   --success-dark: #059669;
   
   /* Neutral Colors */
-  --dark-navy: #0f172a;
-  --slate: #334155;
+  --dark-navy: #0a0e27;
+  --slate: #2d3250;
   --gray: #64748b;
   --light-gray: #e2e8f0;
   --bg-light: #f8fafc;
   
   /* Gradients */
-  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --gradient-primary: linear-gradient(135deg, #FF6B35 0%, #FF006E 50%, #8B5CF6 100%);
   --gradient-success: linear-gradient(135deg, #10b981 0%, #059669 100%);
-  --gradient-subtle: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  --gradient-subtle: linear-gradient(135deg, #f8fafc 0%, #e8f0fe 100%);
   
   /* Shadows */
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-glow: 0 0 30px rgba(255, 107, 53, 0.3);
   
   /* Transitions */
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -35,11 +37,12 @@
 }
 
 body {
-  padding-top: 80px;
+  padding-top: 85px;
   min-height: 100vh;
   background: var(--gradient-subtle);
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
 }
 
 /* Custom Scrollbar */
@@ -58,7 +61,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--primary-dark);
+  background: var(--primary-pink);
 }
 
 /* Navbar */
@@ -66,7 +69,7 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  height: 80px;
+  height: 85px;
   background: var(--dark-navy);
   display: flex;
   justify-content: center;
@@ -81,18 +84,50 @@ body {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 3px;
+  height: 4px;
   background: var(--gradient-success);
 }
 
-.nav-content {
+/* Logo */
+.logo-container {
   display: flex;
   align-items: center;
-  transition: var(--transition);
+  gap: 15px;
 }
 
-.nav-content:hover {
-  transform: translateY(-2px);
+.logo-icon {
+  font-size: 2.5rem;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.logo-main {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.02em;
+}
+
+.logo-sub {
+  font-size: 0.9rem;
+  color: var(--light-gray);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 /* Container */
@@ -107,21 +142,22 @@ body {
 /* Success Box */
 .box {
   width: 100%;
-  max-width: 500px;
+  max-width: 600px;
   background: white;
-  padding: 50px 40px;
-  border-radius: 20px;
+  padding: 60px 50px;
+  border-radius: 24px;
   box-shadow: var(--shadow-xl);
   text-align: center;
   position: relative;
   overflow: hidden;
-  animation: slideUp 0.5s ease-out;
+  animation: slideUp 0.6s ease-out;
+  border: 2px solid rgba(255, 107, 53, 0.1);
 }
 
 @keyframes slideUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(40px);
   }
   to {
     opacity: 1;
@@ -135,8 +171,19 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 5px;
+  height: 6px;
   background: var(--gradient-success);
+}
+
+.confetti {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 /* Title */
@@ -146,8 +193,9 @@ body {
 }
 
 .title h1 {
-  font-size: 2.5rem;
-  font-weight: 800;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 3rem;
+  font-weight: 900;
   background: var(--gradient-success);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -159,8 +207,8 @@ body {
 .box img {
   display: block;
   margin: 30px auto;
-  height: 180px;
-  animation: bounceIn 0.6s ease-out 0.2s both;
+  height: 200px;
+  animation: bounceIn 0.8s ease-out 0.3s both;
 }
 
 @keyframes bounceIn {
@@ -169,7 +217,7 @@ body {
     transform: scale(0.3);
   }
   50% {
-    transform: scale(1.05);
+    transform: scale(1.1);
   }
   70% {
     transform: scale(0.9);
@@ -180,31 +228,86 @@ body {
   }
 }
 
-/* Text */
-.box p {
-  font-size: 1.1rem;
-  color: var(--slate);
-  line-height: 1.7;
+/* Success Message */
+.success-message {
+  margin: 30px 0;
+}
+
+.main-message {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--dark-navy);
   margin-bottom: 15px;
 }
 
-.box p:last-of-type {
-  font-size: 0.95rem;
+.success-message p {
+  font-size: 1.1rem;
   color: var(--gray);
-  margin-bottom: 0;
+  line-height: 1.8;
+  margin-bottom: 15px;
 }
 
-.box a {
-  color: var(--primary-color);
-  font-weight: 600;
+/* Next Steps */
+.next-steps {
+  background: var(--bg-light);
+  border: 2px solid var(--light-gray);
+  border-radius: 16px;
+  padding: 30px;
+  margin: 30px 0;
+  text-align: left;
+}
+
+.next-steps h3 {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.next-steps ul {
+  list-style: none;
+  display: grid;
+  gap: 12px;
+}
+
+.next-steps ul li {
+  font-size: 1rem;
+  color: var(--slate);
+  padding: 12px;
+  background: white;
+  border-radius: 10px;
+  border: 2px solid var(--light-gray);
+  transition: var(--transition);
+}
+
+.next-steps ul li:hover {
+  border-color: var(--primary-orange);
+  transform: translateX(5px);
+}
+
+/* Contact Info */
+.contact-info {
+  font-size: 1rem;
+  color: var(--gray);
+  margin: 25px 0;
+}
+
+.contact-info a {
+  color: var(--primary-orange);
+  font-weight: 700;
   text-decoration: none;
   transition: var(--transition);
   border-bottom: 2px solid transparent;
 }
 
-.box a:hover {
-  color: var(--primary-dark);
-  border-bottom-color: var(--primary-dark);
+.contact-info a:hover {
+  color: var(--primary-pink);
+  border-bottom-color: var(--primary-pink);
 }
 
 /* Button */
@@ -214,30 +317,30 @@ body {
 
 .button input {
   width: 100%;
-  padding: 16px 32px;
-  border-radius: 12px;
+  padding: 18px 40px;
+  border-radius: 14px;
   border: none;
   background: var(--gradient-primary);
   color: white;
-  font-size: 1.1rem;
-  font-weight: 700;
+  font-size: 1.15rem;
+  font-weight: 800;
   cursor: pointer;
   transition: var(--transition);
   text-transform: uppercase;
-  letter-spacing: 1px;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  letter-spacing: 1.5px;
+  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
 }
 
 .button input:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+  box-shadow: var(--shadow-glow);
 }
 
 .button input:active {
   transform: translateY(-1px);
 }
 
-/* Session Data (hidden by default) */
+/* Session Data (hidden) */
 .json {
   display: none;
 }
@@ -245,11 +348,19 @@ body {
 /* Responsive Design */
 @media (max-width: 800px) {
   body {
-    padding-top: 70px;
+    padding-top: 75px;
   }
   
   .navbar {
-    height: 70px;
+    height: 75px;
+  }
+  
+  .logo-main {
+    font-size: 1.5rem;
+  }
+  
+  .logo-sub {
+    font-size: 0.75rem;
   }
   
   .container {
@@ -258,24 +369,36 @@ body {
   
   .box {
     padding: 40px 30px;
-    border-radius: 16px;
+    border-radius: 20px;
   }
   
   .title h1 {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
   
   .box img {
-    height: 140px;
+    height: 150px;
     margin: 25px auto;
   }
   
-  .box p {
+  .main-message {
+    font-size: 1.2rem;
+  }
+  
+  .success-message p {
     font-size: 1rem;
   }
   
+  .next-steps {
+    padding: 25px 20px;
+  }
+  
+  .next-steps h3 {
+    font-size: 1.2rem;
+  }
+  
   .button input {
-    padding: 14px 28px;
+    padding: 16px 32px;
     font-size: 1rem;
   }
 }
