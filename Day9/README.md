@@ -111,7 +111,7 @@ Day 10: Customer says: "Nobody uses 3 or 4 numbers.
 ```
 
 **Characteristics:**
-- **Single central server** holds all code
+- **Single central server** holds all the code
 - Developers commit to and pull from central server
 - **All communication** goes through central server
 
